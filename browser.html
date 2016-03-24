@@ -14,20 +14,19 @@
 <div id="mimes"></div>
 <script type="text/javascript">
     $(document).ready(function () {
-        $("#common").append($("<div></div>").html("appCodeName: " + navigator.appCodeName));
-        $("#common").append($("<div></div>").html("appName: " + navigator.appName));
-        $("#common").append($("<div></div>").html("appVersion: " + navigator.appVersion));
-        $("#common").append($("<div></div>").html("cookieEnabled: " + navigator.cookieEnabled));
-        $("#common").append($("<div></div>").html("javaEnabled(): " + navigator.javaEnabled()));
-        $("#common").append($("<div></div>").html("language: " + navigator.language));
-        $("#common").append($("<div></div>").html("onLine: " + navigator.onLine));
-        $("#common").append($("<div></div>").html("platform: " + navigator.platform));
-        $("#common").append($("<div></div>").html("product: " + navigator.product));
-        $("#common").append($("<div></div>").html("ie. systemLanguage: " + navigator.systemLanguage)); // ie
-        $("#common").append($("<div></div>").html("userAgent: " + navigator.userAgent));
-        $("#common").append($("<div></div>").html("ie. userLanguage: " + navigator.userLanguage)); // ie
+        $("#common").append($("<div></div>\n").html("appCodeName: " + navigator.appCodeName));
+        $("#common").append($("<div></div>\n").html("appName: " + navigator.appName));
+        $("#common").append($("<div></div>\n").html("appVersion: " + navigator.appVersion));
+        $("#common").append($("<div></div>\n").html("cookieEnabled: " + navigator.cookieEnabled));
+        $("#common").append($("<div></div>\n").html("javaEnabled(): " + navigator.javaEnabled()));
+        $("#common").append($("<div></div>\n").html("language: " + navigator.language));
+        $("#common").append($("<div></div>\n").html("onLine: " + navigator.onLine));
+        $("#common").append($("<div></div>\n").html("platform: " + navigator.platform));
+        $("#common").append($("<div></div>\n").html("product: " + navigator.product));
+        $("#common").append($("<div></div>\n").html("ie. systemLanguage: " + navigator.systemLanguage)); // ie
+        $("#common").append($("<div></div>\n").html("userAgent: " + navigator.userAgent));
+        $("#common").append($("<div></div>\n").html("ie. userLanguage: " + navigator.userLanguage)); // ie
 
-        console.error('navigator.plugins', typeof(navigator.plugins));
         if (navigator.plugins.length == 0) {
             $("#plugins").text("No plugins found!");
         } else {
@@ -39,17 +38,21 @@
                 text += "<br>";
 
                 text += "Mime types:<br>";
-                $.each(plugin, function (inx, mime) {
-                    text += "Type: " + mime.type + "<br>";
-                    text += "Suffixes: " + mime.suffixes + "<br>";
-                    text += "Description: " + mime.description + "<br>";
-                    text += "<br>";
-                });
+                if (plugin.length == 0) {
+                    text += "nothing<br>";
+                }
+                else {
+                    $.each(plugin, function (inx, mime) {
+                        text += "Type: " + mime.type + "<br>";
+                        text += "Suffixes: " + mime.suffixes + "<br>";
+                        text += "Description: " + mime.description + "<br>";
+                        text += "<br>";
+                    });
+                }
                 text += "<hr>";
 
                 var pluginDiv = $("<div></div>").html(text);
                 $("#plugins").append(pluginDiv);
-                console.log(plugin);
             });
         }
 
@@ -64,7 +67,6 @@
 
                 var mimeDiv = $("<div></div>").html(text);
                 $("#mimes").append(mimeDiv);
-                console.log(mime);
             });
         }
     });
