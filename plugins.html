@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plugins</title>
+    <link href='style.css' type='text/css' rel='stylesheet'>
+</head>
+<body>
+<h2>Plugins</h2>
+<div id="plugins"></div>
+<script src="http://code.jquery.com/jquery-2.2.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $.each(navigator.plugins, function (inx, plugin) {
+            var pluginDiv = $("<div></div>");
+
+            var text = "Name: " + plugin.name + "<br>";
+            text += "Filename: " + plugin.filename + "<br>";
+            text += "Description: " + plugin.description + "<br>";
+            text += "<br>";
+
+            text += "Mime types:<br>";
+            $.each(plugin, function (inx, m) {
+                text += "Type: " + m.type + "<br>";
+                text += "Suffixes: " + m.suffixes + "<br>";
+                text += "Description: " + m.description + "<br>";
+                text += "<br>";
+            });
+            text += "<hr>";
+
+            pluginDiv.html(text);
+
+            $("#plugins").append(pluginDiv);
+            console.log(plugin);
+        });
+    });
+</script>
+</body>
+</html>
