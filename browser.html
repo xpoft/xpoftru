@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Browser</title>
+    <link href='style.css' type='text/css' rel='stylesheet'>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.2.min.js"></script>
+</head>
+<body>
+<div id="common"></div>
+<h2>Plugins</h2>
+<div id="plugins"></div>
+<h2>MIME types</h2>
+<div id="mimes"></div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#common").append($("<div></div>").html("appCodeName: " + navigator.appCodeName));
+        $("#common").append($("<div></div>").html("appName: " + navigator.appName));
+        $("#common").append($("<div></div>").html("appVersion: " + navigator.appVersion));
+        $("#common").append($("<div></div>").html("cookieEnabled: " + navigator.cookieEnabled));
+        $("#common").append($("<div></div>").html("javaEnabled(): " + navigator.javaEnabled()));
+        $("#common").append($("<div></div>").html("language: " + navigator.language));
+        $("#common").append($("<div></div>").html("onLine: " + navigator.onLine));
+        $("#common").append($("<div></div>").html("platform: " + navigator.platform));
+        $("#common").append($("<div></div>").html("product: " + navigator.product));
+        $("#common").append($("<div></div>").html("ie. systemLanguage: " + navigator.systemLanguage)); // ie
+        $("#common").append($("<div></div>").html("userAgent: " + navigator.userAgent));
+        $("#common").append($("<div></div>").html("ie. userLanguage: " + navigator.userLanguage)); // ie
+
+        console.error('navigator.plugins', typeof(navigator.plugins));
+        if (navigator.plugins.length == 0) {
+            $("#plugins").text("No plugins found!");
+        } else {
+            $.each(navigator.plugins, function (inx, plugin) {
+
+                var text = "Name: " + plugin.name + "<br>";
+                text += "Filename: " + plugin.filename + "<br>";
+                text += "Description: " + plugin.description + "<br>";
+                text += "<br>";
+
+                text += "Mime types:<br>";
+                $.each(plugin, function (inx, mime) {
+                    text += "Type: " + mime.type + "<br>";
+                    text += "Suffixes: " + mime.suffixes + "<br>";
+                    text += "Description: " + mime.description + "<br>";
+                    text += "<br>";
+                });
+                text += "<hr>";
+
+                var pluginDiv = $("<div></div>").html(text);
+                $("#plugins").append(pluginDiv);
+                console.log(plugin);
+            });
+        }
+
+        if (navigator.mimeTypes.length == 0) {
+            $("#mimes").text("No MIME types found!");
+        } else {
+            $.each(navigator.mimeTypes, function (inx, mime) {
+                var text = "Type: " + mime.type + "<br>";
+                text += "Suffixes: " + mime.suffixes + "<br>";
+                text += "Description: " + mime.description + "<br>";
+                text += "<br>";
+
+                var mimeDiv = $("<div></div>").html(text);
+                $("#mimes").append(mimeDiv);
+                console.log(mime);
+            });
+        }
+    });
+</script>
+</body>
+</html>
