@@ -27,6 +27,8 @@
         $("#common").append($("<div></div>\n").html("userAgent: " + navigator.userAgent));
         $("#common").append($("<div></div>\n").html("ie. userLanguage: " + navigator.userLanguage)); // ie
 
+        $("#common").append($("<div></div>\n").html("referer: " + document.referrer)); // ie
+
         if (navigator.plugins.length == 0) {
             $("#plugins").text("No plugins found!");
         } else {
