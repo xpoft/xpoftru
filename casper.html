@@ -9,21 +9,6 @@
         body {
             background-color: white;
         }
-
-        .click_point {
-            border-radius: 50%;
-            width: 11px;
-            height: 11px;
-            position: absolute;
-            background-color: red;
-        }
-
-        .move_point {
-            width: 2px;
-            height: 2px;
-            position: absolute;
-            background-color: green;
-        }
     </style>
 </head>
 <body>
@@ -35,36 +20,32 @@
 </div>
 
 <script type="text/javascript">
+    document.body.onmousemove = function (e) {
+        console.log("mouse");
+        var x = e.clientX;
+        var y = e.clientY;
+
+        var point = document.createElement("div");
+        point.style.width = "2px";
+        point.style.height = "2px";
+        point.style.position = "absolute";
+        point.style.backgroundColor = "green";
+        point.style.top = y + "px";
+        point.style.left = x + "px";
+        document.body.appendChild(point);
+    };
+
     $(document).ready(function () {
         $('#box1').click(function (e) {
             console.log("Mouse click #box1");
         });
+
+        $('a').click(function (e) {
+            console.log("Mouse click a");
+
+            return false;
+        });
     });
-    /*
-     $(document).ready(function () {
-     $(document).click(function (e) {
-     console.log("Mouse click {", e.clientX, ",", e.clientY, "}");
-
-     var point = $("<div class='click_point'>");
-     var x = e.clientX - 5;
-     var y = e.clientY - 5;
-     point.css("top", y).css("left", x);
-
-     $("#layout").append(point);
-     });
-
-     $(document).mousemove(function (e) {
-     var point = $("<div class='move_point'>");
-     point.css("top", e.clientY).css("left", e.clientX);
-
-     $("#layout").append(point);
-     });
-
-     $('#box1').click(function (e) {
-     console.log("Mouse click #box1");
-     });
-     });
-     */
 </script>
 
 </body>
