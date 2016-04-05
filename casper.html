@@ -35,23 +35,6 @@
 </div>
 
 <script type="text/javascript">
-    document.onclick = function (e) {
-        console.log("c", e);
-
-        var x = e.clientX - 5;
-        var y = e.clientY - 5;
-
-        var point = document.createElement("div");
-        point.style.borderRadius = "50%";
-        point.style.width = "11px";
-        point.style.height = "11px";
-        point.style.position = "absolute";
-        point.style.backgroundColor = "red";
-        point.style.top = y + "px";
-        point.style.left = x + "px";
-        document.body.appendChild(point);
-    };
-
     $(document).ready(function () {
         $('#box1').click(function (e) {
             console.log("Mouse click #box1");
