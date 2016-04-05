@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>CasperJS</title>
     <link href='style.css' type='text/css' rel='stylesheet'>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
     <style>
         body {
             background-color: white;
@@ -20,32 +19,14 @@
 </div>
 
 <script type="text/javascript">
-    document.body.onmousemove = function (e) {
-        console.log("mouse");
-        var x = e.clientX;
-        var y = e.clientY;
-
-        var point = document.createElement("div");
-        point.style.width = "2px";
-        point.style.height = "2px";
-        point.style.position = "absolute";
-        point.style.backgroundColor = "green";
-        point.style.top = y + "px";
-        point.style.left = x + "px";
-        document.body.appendChild(point);
+    document.getElementById("box1").onclick = function () {
+        console.log("Mouse click #box1");
     };
 
-    $(document).ready(function () {
-        $('#box1').click(function (e) {
-            console.log("Mouse click #box1");
-        });
-
-        $('a').click(function (e) {
-            console.log("Mouse click a");
-
-            return false;
-        });
-    });
+    document.getElementsByTagName("a")[0].onclick = function () {
+        console.log("Mouse click a");
+        return false;
+    };
 </script>
 
 </body>
