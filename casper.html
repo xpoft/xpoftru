@@ -4,108 +4,58 @@
     <meta charset="UTF-8">
     <title>CasperJS</title>
     <link href='style.css' type='text/css' rel='stylesheet'>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <style>
+        .click_point {
+            border-radius: 50%;
+            width: 11px;
+            height: 11px;
+            position: absolute;
+            background-color: red;
+        }
+
+        .move_point {
+            width: 2px;
+            height: 2px;
+            position: absolute;
+            background-color: green;
+        }
+    </style>
 </head>
 <body>
+<div id="layout" style="z-index: 1000; width: 100%; height: 100%; position: absolute"></div>
+<div style="padding-left: 100px; padding-top: 50px">
+    <div id="box1" style="background-color: #cccccc; width: 300px; height: 80px">Simple text</div>
 
-<table style="width: 100%">
-    <tr>
-        <td><div id="left">Left</div></td>
-        <td style="text-align: right"><div id="right">Right</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 10em"><div id="center">Center</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 10em"><div id="line1">Line 1</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 5em; background-color: #eeeeee"><div id="line2">Line 2</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 5em"><div id="line3">Line 3</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 5em; background-color: #eeeeee"><div id="line4">Line 4</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 5em"><div id="line5">Line 5</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 5em; background-color: #eeeeee"><div id="line6">Line 6</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 5em"><div id="line7">Line 7</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 5em; background-color: #eeeeee"><div id="line8">Line 8</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 5em"><div id="line9">Line 9</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 5em; background-color: #eeeeee"><div id="line10">Line 10</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 5em"><div id="line11">Line 11</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 5em; background-color: #eeeeee"><div id="line12">Line 12</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 5em"><div id="line13">Line 13</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 5em; background-color: #eeeeee"><div id="line14">Line 14</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 5em"><div id="line15">Line 15</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 5em; background-color: #eeeeee"><div id="line16">Line 16</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 5em"><div id="line17">Line 17</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 5em; background-color: #eeeeee"><div id="line18">Line 18</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 5em"><div id="line19">Line 19</div></td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align: center; padding-top: 5em; background-color: #eeeeee"><div id="line20">Line 20</div></td>
-    </tr>
-</table>
+    <br />
+    <a href="#">Какая-то ссылка</a>
+</div>
 
-<!-- Yandex.Metrika counter -->
 <script type="text/javascript">
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter1594599 = new Ya.Metrika({
-                    id:1594599,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true,
-                    webvisor:true
-                });
-            } catch(e) { }
+    $(document).ready(function () {
+        $(document).click(function (e) {
+            console.log("Mouse click {", e.clientX, ",", e.clientY, "}");
+
+            var point = $("<div class='click_point'>");
+            var x = e.clientX - 5;
+            var y = e.clientY - 5;
+            point.css("top", y).css("left", x);
+
+            $("#layout").append(point);
         });
 
-        var n = d.getElementsByTagName("script")[0],
-                s = d.createElement("script"),
-                f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
+        $(document).mousemove(function (e) {
+            var point = $("<div class='move_point'>");
+            point.css("top", e.clientY).css("left", e.clientX);
 
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks");
+            $("#layout").append(point);
+        });
+
+        $('#box1').click(function (e) {
+            console.log("Mouse click #box1");
+        });
+    });
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/1594599" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 
 </body>
 </html>
