@@ -19,18 +19,18 @@
 </div>
 
 <script type="text/javascript">
-    document.onclick = function () {
+    document.addEventListener("click", function () {
         console.log("Click it!");
-    };
+    });
 
-    document.getElementById("box1").onclick = function () {
+    document.getElementById("box1").addEventListener("click", function () {
         console.log("Mouse click #box1");
-    };
+    });
 
-    document.getElementsByTagName("a")[0].onclick = function () {
+    document.getElementsByTagName("a")[0].addEventListener("click", function () {
         console.log("Mouse click a");
         return false;
-    };
+    });
 </script>
 
 </body>
