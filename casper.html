@@ -15,7 +15,9 @@
     <div id="box1" style="background-color: #cccccc; width: 300px; height: 80px">Simple text</div>
 
     <br/>
-    <a href="#">Какая-то ссылка</a>
+
+    <a href="#" id="link1">Какая-то ссылка</a>
+    <a href="casper.html" id="link2">casper.html</a>
 
     <br /><br />
     <div id="box2" style="background-color: #cccccc; width: 300px; height: 1500px">Simple text 2</div>
@@ -25,15 +27,11 @@
 
 <script type="text/javascript">
     document.addEventListener("click", function () {
-        console.log("Click it!");
+        console.log(Date.now(), "Click it!");
     });
 
-    document.getElementById("box1").addEventListener("click", function () {
-        console.log("Mouse click #box1");
-    });
-
-    document.getElementsByTagName("a")[0].addEventListener("click", function () {
-        console.log("Mouse click a");
+    document.getElementById("#link1")[0].addEventListener("click", function () {
+        console.log(Date.now(), "Mouse click a#link1");
         return false;
     });
 </script>
