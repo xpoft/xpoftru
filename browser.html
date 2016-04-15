@@ -14,6 +14,14 @@
 <div id="mimes"></div>
 <script type="text/javascript">
     $(document).ready(function () {
+        $("#common").append($("<div></div>\n").html("width: " + window.screen.width));
+        $("#common").append($("<div></div>\n").html("height: " + window.screen.height));
+        $("#common").append($("<div></div>\n").html("pixelDepth: " + window.screen.pixelDepth));
+        $("#common").append($("<div></div>\n").html("colorDepth: " + window.screen.colorDepth));
+        $("#common").append($("<div></div>\n").html("availWidth: " + window.screen.availWidth));
+        $("#common").append($("<div></div>\n").html("availHeight: " + window.screen.availHeight));
+        $("#common").append("<br>\n");
+
         $("#common").append($("<div></div>\n").html("appCodeName: " + navigator.appCodeName));
         $("#common").append($("<div></div>\n").html("appName: " + navigator.appName));
         $("#common").append($("<div></div>\n").html("appVersion: " + navigator.appVersion));
