@@ -31,14 +31,25 @@
 </div>
 
 <script type="text/javascript">
-    document.addEventListener("click", function () {
-        console.log("Click it!");
-    });
+    if (document.addEventListener) {
+        document.addEventListener("click", function () {
+            console.log("Click it!");
+        });
 
-    document.getElementById("link1").addEventListener("click", function () {
-        console.log("Mouse click a#link1");
-        return false;
-    });
+        document.getElementById("link1").addEventListener("click", function () {
+            console.log("Mouse click a#link1");
+            return false;
+        });
+    } else {
+        document.attachEvent("onclick", function () {
+            console.log("Click it!");
+        });
+
+        document.getElementById("link1").attachEvent("onclick", function () {
+            console.log("Mouse click a#link1");
+            return false;
+        });
+    }
 </script>
 
 </body>
