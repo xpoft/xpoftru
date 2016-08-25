@@ -25,6 +25,8 @@
     <a href="//news.yandex.ru" id="link11">news.yandex.ru</a>
 
     <br /><br />
+    <input type="text" id="input1">
+    <br /><br />
     <div id="box2" style="background-color: #cccccc; width: 300px; height: 1500px">Simple text 2</div>
     <br><br>
     <div id="box3" style="background-color: #cccccc; width: 300px; height: 80px">Simple text 3</div>
@@ -41,6 +43,21 @@
 
         document.getElementById("link1").addEventListener("click", function () {
             console.log("Mouse click a#link1");
+            return false;
+        });
+
+        document.getElementById("input1").addEventListener("focus", function () {
+            console.log("input1 focus");
+           return false;
+        });
+
+        document.getElementById("input1").addEventListener("blur", function () {
+            console.log("input1 blur");
+            return false;
+        });
+
+        document.getElementById("input1").addEventListener("keyup", function (e) {
+            console.log("input1 keyup: " + e.which + " / " + e.char + " / " + e.key);
             return false;
         });
     } else {
