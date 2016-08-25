@@ -60,6 +60,11 @@
             console.log("input1 keyup: " + e.which + " / " + e.char + " / " + e.key);
             return false;
         });
+
+        document.addEventListener("keyup", function (e) {
+            console.log("keyup: " + e.which + " / " + e.char + " / " + e.key);
+            return false;
+        });
     } else {
         document.attachEvent("onclick", function () {
             console.log("Click it!");
