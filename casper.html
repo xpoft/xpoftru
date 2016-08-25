@@ -37,8 +37,8 @@
     console.log("myVar", "z", typeof window.myVar != "undefined" ? window.myVar : "undefined");
 
     if (document.addEventListener) {
-        document.addEventListener("click", function () {
-            console.log("Click it!");
+        document.addEventListener("click", function (e) {
+            console.log("Click it! " + e.x + "x" + e.y);
         });
 
         document.getElementById("link1").addEventListener("click", function () {
