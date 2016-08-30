@@ -34,7 +34,7 @@
 
 <script type="text/javascript">
     console.log("init");
-    console.log("myVar", "z", typeof window.myVar != "undefined" ? window.myVar : "undefined");
+    console.log("myVar: " + (typeof window.myVar != "undefined" ? window.myVar : "undefined"));
 
     if (document.addEventListener) {
         document.addEventListener("click", function (e) {
