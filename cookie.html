@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookie</title>
+    <link href='style.css' type='text/css' rel='stylesheet'>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.2/js.cookie.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    $(function () {
+        // persist
+        if (!Cookies.get("name3"))
+        {
+            Cookies.set('name3', Math.random() * 1000000);
+        }
+
+        // get
+        console.log("name1: " + Cookies.get('name1'));
+        console.log("name2: " + Cookies.get('name2'));
+        console.log("name3: " + Cookies.get('name3'));
+
+        // set
+        Cookies.set('name1', new Date());
+        Cookies.set('name2', new Date(), { expires: 7 });
+    });
+</script>
+</body>
+</html>
