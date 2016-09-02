@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Move</title>
+    <link href='style.css' type='text/css' rel='stylesheet'>
+</head>
+<body>
+<div id="move1" style="background-color: #cccccc; width: 300px; height: 80px">Move 1</div>
+<br /><br />
+<div id="move2" style="background-color: #cccccc; width: 300px; height: 80px">Move 2</div>
+<script type="text/javascript">
+    document.getElementById("move1").addEventListener("mouseenter", function (e) {
+        var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}`;
+        console.log('mouse enter. ' + str);
+    });
+
+    document.getElementById("move1").addEventListener("mouseleave", function (e) {
+        var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}`;
+        console.log('mouse leave. ' + str);
+    });
+
+    document.getElementById("move2").addEventListener("mouseenter", function (e) {
+        var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}`;
+        console.log('mouse enter. ' + str);
+    });
+
+    document.getElementById("move2").addEventListener("mouseleave", function (e) {
+        var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}`;
+        console.log('mouse leave. ' + str);
+    });
+
+    document.addEventListener("mousemove", function (e) {
+        var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}`;
+        console.log('mouse move. ' + str);
+    });
+</script>
+</body>
+</html>
