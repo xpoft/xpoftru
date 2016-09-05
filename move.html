@@ -20,28 +20,28 @@
 <div id="move2" style="background-color: #dddddd; width: 300px; height: 80px">Move 2</div>
 <script type="text/javascript">
     document.getElementById("move1").addEventListener("mouseenter", function (e) {
-        var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}`;
+        var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}, scrollTop: ${document.body.scrollTop}`;
         console.log('move1. mouse enter. ' + str);
     });
 
     document.getElementById("move1").addEventListener("mouseleave", function (e) {
-        var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}`;
+        var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}, scrollTop: ${document.body.scrollTop}`;
         console.log('move1. mouse leave. ' + str);
     });
 
     document.getElementById("move2").addEventListener("mouseenter", function (e) {
-        var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}`;
+        var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}, scrollTop: ${document.body.scrollTop}`;
         console.log('move2. mouse enter. ' + str);
     });
 
     document.getElementById("move2").addEventListener("mouseleave", function (e) {
-        var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}`;
+        var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}, scrollTop: ${document.body.scrollTop}`;
         console.log('move2. mouse leave. ' + str);
     });
 
     document.addEventListener("mousemove", function (e) {
-        var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}`;
-        // console.log('mouse move. ' + str);
+        var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}, scrollTop: ${document.body.scrollTop}`;
+        console.log('mouse move. ' + str);
     });
 
     document.addEventListener("scroll", function (e) {
