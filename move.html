@@ -21,27 +21,32 @@
 <script type="text/javascript">
     document.getElementById("move1").addEventListener("mouseenter", function (e) {
         var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}`;
-        console.log('mouse enter. ' + str);
+        console.log('move1. mouse enter. ' + str);
     });
 
     document.getElementById("move1").addEventListener("mouseleave", function (e) {
         var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}`;
-        console.log('mouse leave. ' + str);
+        console.log('move1. mouse leave. ' + str);
     });
 
     document.getElementById("move2").addEventListener("mouseenter", function (e) {
         var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}`;
-        console.log('mouse enter. ' + str);
+        console.log('move2. mouse enter. ' + str);
     });
 
     document.getElementById("move2").addEventListener("mouseleave", function (e) {
         var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}`;
-        console.log('mouse leave. ' + str);
+        console.log('move2. mouse leave. ' + str);
     });
 
     document.addEventListener("mousemove", function (e) {
         var str = `screenX: ${e.screenX}, screenY: ${e.screenY}, clientX: ${e.clientX}, clientY: ${e.clientY}`;
         // console.log('mouse move. ' + str);
+    });
+
+    document.addEventListener("scroll", function (e) {
+        var str = `scroll: ${document.body.scrollTop}`;
+        console.log(str);
     });
 </script>
 </body>
