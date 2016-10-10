@@ -14,28 +14,21 @@
 <div id="mimes"></div>
 <script type="text/javascript">
     $(document).ready(function () {
-        console.log("screen: " + window.screen.width + "x" + window.screen.height);
-
-        $("#common").append($("<div></div>\n").html("width: " + window.screen.width));
-        $("#common").append($("<div></div>\n").html("height: " + window.screen.height));
-        $("#common").append($("<div></div>\n").html("pixelDepth: " + window.screen.pixelDepth));
-        $("#common").append($("<div></div>\n").html("colorDepth: " + window.screen.colorDepth));
-        $("#common").append($("<div></div>\n").html("availWidth: " + window.screen.availWidth));
-        $("#common").append($("<div></div>\n").html("availHeight: " + window.screen.availHeight));
-        $("#common").append("<br>\n");
-
-        $("#common").append($("<div></div>\n").html("appCodeName: " + navigator.appCodeName));
-        $("#common").append($("<div></div>\n").html("appName: " + navigator.appName));
-        $("#common").append($("<div></div>\n").html("appVersion: " + navigator.appVersion));
-        $("#common").append($("<div></div>\n").html("cookieEnabled: " + navigator.cookieEnabled));
-        $("#common").append($("<div></div>\n").html("javaEnabled(): " + navigator.javaEnabled()));
-        $("#common").append($("<div></div>\n").html("language: " + navigator.language));
-        $("#common").append($("<div></div>\n").html("onLine: " + navigator.onLine));
-        $("#common").append($("<div></div>\n").html("platform: " + navigator.platform));
-        $("#common").append($("<div></div>\n").html("product: " + navigator.product));
-        $("#common").append($("<div></div>\n").html("ie. systemLanguage: " + navigator.systemLanguage)); // ie
-        $("#common").append($("<div></div>\n").html("userAgent: " + navigator.userAgent));
-        $("#common").append($("<div></div>\n").html("ie. userLanguage: " + navigator.userLanguage)); // ie
+        $("#common").append("<h1>Screen</h1>\n");
+		for(var i in window.screen)
+		{
+			$("#common").append($("<div></div>\n").html(i + ": " + JSON.stringify(window.screen[i])));
+		}
+		
+        $("#common").append("<h1>Navigator</h1>\n");
+		for(var i in navigator)
+		{
+			if (i == "plugins" || i == "mimeTypes")
+			{
+				continue;
+			}
+			$("#common").append($("<div></div>\n").html(i + ": " + JSON.stringify(navigator[i])));
+		}
 
         $("#common").append($("<div></div>\n").html("referer: " + document.referrer)); // ie
 
