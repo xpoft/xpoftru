@@ -7,7 +7,7 @@
 </head>
 <body>
 <div id="move1" style="background-color: #dddddd; width: 300px; height: 80px">Move 1</div>
-<div style="padding: 5em; background: #eeeeee">DIV 001</div>
+<div style="min-width: 2000px; padding: 5em; background: #eeeeee">DIV 001</div>
 <div style="padding: 5em; background: #cccccc">DIV 002</div>
 <div style="padding: 5em; background: #eeeeee">DIV 003</div>
 <div style="padding: 5em; background: #cccccc">DIV 004</div>
@@ -52,7 +52,7 @@
 
     if (showScroll) {
         document.addEventListener("scroll", function (e) {
-            var str = `scroll: ${document.body.scrollTop}`;
+            var str = `scroll: ${document.body.scrollTop}x${document.body.scrollLeft}`;
             console.log(str);
         });
     }
