@@ -9,8 +9,16 @@
 <h2>AJAX</h2>
 <script type="text/javascript">
 setInterval(function() {
-  console.log("tick!");
-}, 2000);
+  $.ajax({
+    url : 'http://xpoft.ru/frame2.html',
+    type : 'GET',
+    success : function(data) {              
+    },
+    error : function(request,error)
+    {
+    }
+});
+}, 1000);
 </script>
 </body>
 </html>
